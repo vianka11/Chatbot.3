@@ -19,11 +19,7 @@ jobs:
       uses: microsoft/setup-msbuild@v2
 
     - name: Restore NuGet packages
-      run: nuget restore ./Chatbot.3.sln
+      run: nuget restore Chatbot.3/Chatbot.3/Chatbot.3.sln
 
     - name: Build solution
-      run: msbuild ./YourSolution.sln /p:Configuration=Release
-
-    - name: Verify build
-      run: |
-        echo "✅ Build completed successfully!"
+      run: msbuild Chatbot.3/Chatbot.3/Chatbot.3.sln /p:Configuration=Release
