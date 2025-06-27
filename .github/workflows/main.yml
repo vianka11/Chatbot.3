@@ -1,0 +1,29 @@
+name: Build WPF Chatbot (.NET Framework)
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Build on Windows
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Restore NuGet packages
+      run: nuget restore ./YourSolution.sln
+
+    - name: Build solution
+      run: msbuild ./YourSolution.sln /p:Configuration=Release
+
+    - name: Verify build
+      run: |
+        echo "✅ Build completed successfully!"
