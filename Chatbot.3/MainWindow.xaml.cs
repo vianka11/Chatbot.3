@@ -419,7 +419,7 @@ namespace Chatbot3
             AppendMessage(text, Colors.Black);
         }
 
-        // Core helper to append text to the chat output RichTextBox with color
+        // Core helper to append text to the chat output RichTextBox with colour
         private void AppendMessage(string text, Color color)
         {
             var paragraph = new Paragraph(new Run(text + "\n"))
