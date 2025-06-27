@@ -1,0 +1,120 @@
+﻿<Window x:Class="Chatbot3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cybersecurity Awareness Bot"
+        Height="750" Width="900"
+        Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResizeWithGrip"
+        Background="#FFFFFF">
+
+    <!-- Main container with margin -->
+    <Grid Margin="20">
+        <!-- Scrollable area for the entire content -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+
+                <!-- ASCII Art -->
+                <TextBlock x:Name="AsciiArtBlock"
+                           FontFamily="Consolas"
+                           FontSize="14"
+                           Foreground="Green"
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,10"/>
+
+                <!-- Greeting: Welcome and instructions -->
+                <TextBlock x:Name="GreetingBlock"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="DarkCyan"
+                           Margin="0,0,0,10"/>
+
+                <!-- User Name Input: text box and start chat button side-by-side -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                    <TextBox x:Name="UserNameBox"
+                             Width="300" Height="30"
+                             ToolTip="Enter your name..." 
+                             FontSize="14" Padding="5"/>
+                    <Button Content="Start Chat"
+                            Width="120" Height="30"
+                            Margin="10,0,0,0"
+                            Background="#28A745"
+                            Foreground="White"
+                            Click="StartChat_Click"/>
+                </StackPanel>
+
+                <!-- Chat Input Section: user text input and send button -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                    <TextBox x:Name="UserInputBox"
+                             Width="550" Height="30"
+                             ToolTip="Ask something, add task, start quiz..." 
+                             FontSize="14" Padding="5"/>
+                    <Button Content="Send"
+                            Width="80" Height="30"
+                            Margin="10,0,0,0"
+                            Background="#007ACC"
+                            Foreground="White"
+                            Click="SendButton_Click"/>
+                </StackPanel>
+
+                <!-- Chat Output Header -->
+                <TextBlock Text="💬 Conversation:"
+                           FontWeight="Bold"
+                           FontSize="15" Margin="0,0,0,5"/>
+
+                <!-- Chat Output: Conversation history -->
+                <Border BorderBrush="Gray" BorderThickness="1" Background="#F9F9F9" Margin="0,0,0,10">
+                    <RichTextBox x:Name="ChatOutputBlock"
+                                 FontSize="14"
+                                 Padding="10"
+                                 IsReadOnly="True"
+                                 BorderThickness="0"
+                                 Background="#F9F9F9"
+                                 Foreground="Black"
+                                 FontFamily="Segoe UI"
+                                 Height="200"
+                                 VerticalScrollBarVisibility="Auto"/>
+                </Border>
+
+                <!-- Task List Header -->
+                <TextBlock Text="🗂️ Your Cybersecurity Tasks:"
+                           FontWeight="Bold"
+                           FontSize="15" Margin="0,10,0,5"/>
+
+                <!-- Task List: List of current tasks -->
+                <ListBox x:Name="TaskListBox"
+                         Height="120"
+                         Margin="0,0,0,10"
+                         FontSize="14"
+                         Background="#FCFCFC"
+                         BorderBrush="DarkGray" BorderThickness="1"/>
+
+                <!-- Task Management Buttons: mark complete or delete task -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Button Content="✔️ Mark Task as Complete"
+                            Width="180" Height="30"
+                            Margin="0,0,10,0"
+                            Background="#17A2B8"
+                            Foreground="White"
+                            Click="MarkTaskComplete_Click"/>
+                    <Button Content="🗑️ Delete Selected Task"
+                            Width="180" Height="30"
+                            Background="#DC3545"
+                            Foreground="White"
+                            Click="DeleteTask_Click"/>
+                </StackPanel>
+
+                <!-- Button to launch quiz -->
+                <Button Content="🚀 Start Cybersecurity Quiz"
+                        Click="StartQuiz_Click"
+                        Width="240" Height="35"
+                        FontSize="14"
+                        Background="#007ACC"
+                        Foreground="White"
+                        HorizontalAlignment="Left"
+                        Margin="0,0,0,20"/>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
